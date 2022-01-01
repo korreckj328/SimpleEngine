@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		E67CB740277F9549009076A1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E67CB73F277F9549009076A1 /* main.cpp */; };
+		E67CB74B277F9BBB009076A1 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E67CB749277F99C3009076A1 /* libglfw.3.3.dylib */; };
+		E67CB74C277F9C0F009076A1 /* libvulkan.1.2.176.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E67CB747277F9972009076A1 /* libvulkan.1.2.176.dylib */; };
+		E67CB751277FA1BE009076A1 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E67CB74F277FA1BE009076A1 /* Application.cpp */; };
+		E67CB754277FB025009076A1 /* AppValidationLayersAndExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E67CB752277FB025009076A1 /* AppValidationLayersAndExtensions.cpp */; };
+		E67CB757278002FC009076A1 /* VulkanInstance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E67CB755278002FC009076A1 /* VulkanInstance.cpp */; };
+		E67CB75A278010E9009076A1 /* VulkanContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E67CB758278010E9009076A1 /* VulkanContext.cpp */; };
+		E6F394472780B4BB00CBB47F /* Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6F394452780B4BB00CBB47F /* Device.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +32,19 @@
 /* Begin PBXFileReference section */
 		E67CB73C277F9549009076A1 /* SimpleEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		E67CB73F277F9549009076A1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E67CB747277F9972009076A1 /* libvulkan.1.2.176.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.2.176.dylib; path = ../../../usr/local/lib/libvulkan.1.2.176.dylib; sourceTree = "<group>"; };
+		E67CB749277F99C3009076A1 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../opt/homebrew/Cellar/glfw/3.3.6/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		E67CB74D277F9E72009076A1 /* SimpleEngine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleEngine.entitlements; sourceTree = "<group>"; };
+		E67CB74F277FA1BE009076A1 /* Application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
+		E67CB750277FA1BE009076A1 /* Application.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Application.hpp; sourceTree = "<group>"; };
+		E67CB752277FB025009076A1 /* AppValidationLayersAndExtensions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AppValidationLayersAndExtensions.cpp; sourceTree = "<group>"; };
+		E67CB753277FB025009076A1 /* AppValidationLayersAndExtensions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AppValidationLayersAndExtensions.hpp; sourceTree = "<group>"; };
+		E67CB755278002FC009076A1 /* VulkanInstance.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VulkanInstance.cpp; sourceTree = "<group>"; };
+		E67CB756278002FC009076A1 /* VulkanInstance.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VulkanInstance.hpp; sourceTree = "<group>"; };
+		E67CB758278010E9009076A1 /* VulkanContext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VulkanContext.cpp; sourceTree = "<group>"; };
+		E67CB759278010E9009076A1 /* VulkanContext.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VulkanContext.hpp; sourceTree = "<group>"; };
+		E6F394452780B4BB00CBB47F /* Device.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Device.cpp; sourceTree = "<group>"; };
+		E6F394462780B4BB00CBB47F /* Device.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Device.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E67CB74C277F9C0F009076A1 /* libvulkan.1.2.176.dylib in Frameworks */,
+				E67CB74B277F9BBB009076A1 /* libglfw.3.3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +65,7 @@
 			children = (
 				E67CB73E277F9549009076A1 /* SimpleEngine */,
 				E67CB73D277F9549009076A1 /* Products */,
+				E67CB746277F9972009076A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +80,29 @@
 		E67CB73E277F9549009076A1 /* SimpleEngine */ = {
 			isa = PBXGroup;
 			children = (
+				E67CB74D277F9E72009076A1 /* SimpleEngine.entitlements */,
 				E67CB73F277F9549009076A1 /* main.cpp */,
+				E67CB74F277FA1BE009076A1 /* Application.cpp */,
+				E67CB750277FA1BE009076A1 /* Application.hpp */,
+				E67CB752277FB025009076A1 /* AppValidationLayersAndExtensions.cpp */,
+				E67CB753277FB025009076A1 /* AppValidationLayersAndExtensions.hpp */,
+				E67CB755278002FC009076A1 /* VulkanInstance.cpp */,
+				E67CB756278002FC009076A1 /* VulkanInstance.hpp */,
+				E67CB758278010E9009076A1 /* VulkanContext.cpp */,
+				E67CB759278010E9009076A1 /* VulkanContext.hpp */,
+				E6F394452780B4BB00CBB47F /* Device.cpp */,
+				E6F394462780B4BB00CBB47F /* Device.hpp */,
 			);
 			path = SimpleEngine;
+			sourceTree = "<group>";
+		};
+		E67CB746277F9972009076A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E67CB749277F99C3009076A1 /* libglfw.3.3.dylib */,
+				E67CB747277F9972009076A1 /* libvulkan.1.2.176.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +162,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E67CB754277FB025009076A1 /* AppValidationLayersAndExtensions.cpp in Sources */,
+				E6F394472780B4BB00CBB47F /* Device.cpp in Sources */,
+				E67CB757278002FC009076A1 /* VulkanInstance.cpp in Sources */,
+				E67CB751277FA1BE009076A1 /* Application.cpp in Sources */,
 				E67CB740277F9549009076A1 /* main.cpp in Sources */,
+				E67CB75A278010E9009076A1 /* VulkanContext.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,9 +288,21 @@
 		E67CB744277F9549009076A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SimpleEngine/SimpleEngine.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V498Y35Y8U;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/opt/homebrew/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/opt/homebrew/lib,
+					/usr/local/lib,
+					/opt/homebrew/Cellar/glfw/3.3.6/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.korrecksoftware.simpleengine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -250,9 +310,21 @@
 		E67CB745277F9549009076A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SimpleEngine/SimpleEngine.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V498Y35Y8U;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/opt/homebrew/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/opt/homebrew/lib,
+					/usr/local/lib,
+					/opt/homebrew/Cellar/glfw/3.3.6/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.korrecksoftware.simpleengine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
