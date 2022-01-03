@@ -53,4 +53,10 @@ void VulkanContext::initVulkan(GLFWwindow *window) {
     device = new Device();
     device->pickPhysicalDevice(vInstance, surface);
     device->createLogicalDevice(surface, isValidationLayersEnabled, valLayersAndExt);
+    swapChain = new SwapChain();
+    swapChain->create(surface);
+}
+
+Device *VulkanContext::getDevice() {
+    return device;
 }

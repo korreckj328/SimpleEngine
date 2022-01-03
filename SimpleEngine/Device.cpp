@@ -170,6 +170,8 @@ void Device::createLogicalDevice(VkSurfaceKHR surface, bool isValidationLayerEna
     
     VkPhysicalDeviceFeatures deviceFeatures = {};
     deviceFeatures.samplerAnisotropy = VK_TRUE;
+    
+    // This needs to be added to support MoltenVK it seems.
     deviceExtensions.push_back("VK_KHR_portability_subset");
     
     VkDeviceCreateInfo createInfo = {};

@@ -17,6 +17,7 @@
 #include "AppValidationLayersAndExtensions.hpp"
 #include "VulkanInstance.hpp"
 #include "Device.hpp"
+#include "SwapChain.hpp"
 
 #ifdef DEBUG
 const bool isValidationLayersEnabled = true;
@@ -31,10 +32,13 @@ public:
     
     ~VulkanContext();
     void initVulkan(GLFWwindow *window);
+    
+    Device *getDevice();
 private:
     AppValidationLayersAndExtensions *valLayersAndExt;
     VulkanInstance *vInstance;
     Device *device;
+    SwapChain *swapChain;
     // Surface
     VkSurfaceKHR surface;
 };

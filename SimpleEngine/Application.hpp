@@ -15,6 +15,7 @@
 #include <string>
 
 #include "VulkanContext.hpp"
+#include "SwapChain.hpp"
 
 class Application {
 public:

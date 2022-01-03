@@ -14,6 +14,7 @@
 		E67CB754277FB025009076A1 /* AppValidationLayersAndExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E67CB752277FB025009076A1 /* AppValidationLayersAndExtensions.cpp */; };
 		E67CB757278002FC009076A1 /* VulkanInstance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E67CB755278002FC009076A1 /* VulkanInstance.cpp */; };
 		E67CB75A278010E9009076A1 /* VulkanContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E67CB758278010E9009076A1 /* VulkanContext.cpp */; };
+		E6AC8004278365DA00568A70 /* SwapChain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8002278365DA00568A70 /* SwapChain.cpp */; };
 		E6F394472780B4BB00CBB47F /* Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6F394452780B4BB00CBB47F /* Device.cpp */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,8 @@
 		E67CB756278002FC009076A1 /* VulkanInstance.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VulkanInstance.hpp; sourceTree = "<group>"; };
 		E67CB758278010E9009076A1 /* VulkanContext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VulkanContext.cpp; sourceTree = "<group>"; };
 		E67CB759278010E9009076A1 /* VulkanContext.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VulkanContext.hpp; sourceTree = "<group>"; };
+		E6AC8002278365DA00568A70 /* SwapChain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SwapChain.cpp; sourceTree = "<group>"; };
+		E6AC8003278365DA00568A70 /* SwapChain.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SwapChain.hpp; sourceTree = "<group>"; };
 		E6F394452780B4BB00CBB47F /* Device.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Device.cpp; sourceTree = "<group>"; };
 		E6F394462780B4BB00CBB47F /* Device.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Device.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +95,8 @@
 				E67CB759278010E9009076A1 /* VulkanContext.hpp */,
 				E6F394452780B4BB00CBB47F /* Device.cpp */,
 				E6F394462780B4BB00CBB47F /* Device.hpp */,
+				E6AC8002278365DA00568A70 /* SwapChain.cpp */,
+				E6AC8003278365DA00568A70 /* SwapChain.hpp */,
 			);
 			path = SimpleEngine;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			files = (
 				E67CB754277FB025009076A1 /* AppValidationLayersAndExtensions.cpp in Sources */,
 				E6F394472780B4BB00CBB47F /* Device.cpp in Sources */,
+				E6AC8004278365DA00568A70 /* SwapChain.cpp in Sources */,
 				E67CB757278002FC009076A1 /* VulkanInstance.cpp in Sources */,
 				E67CB751277FA1BE009076A1 /* Application.cpp in Sources */,
 				E67CB740277F9549009076A1 /* main.cpp in Sources */,

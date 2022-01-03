@@ -27,7 +27,7 @@ void VulkanInstance::createAppAndVkInstance(bool enableValidationLayers, AppVali
     appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
     appInfo.apiVersion = VK_API_VERSION_1_0;
     
-    
+    // to be used to support VK_KHR_portability_subset
     const char* instExtension = "VK_KHR_get_physical_device_properties2";
     
     VkInstanceCreateInfo vkInstanceInfo = {};
@@ -37,8 +37,11 @@ void VulkanInstance::createAppAndVkInstance(bool enableValidationLayers, AppVali
     // specify extensions and validation layers
     auto extensions = valLayersAndExtensions->getRequiredExtensions(enableValidationLayers);
     
-    vkInstanceInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size() + 1);
+    // add instExtensions to extensions to support VK_KHR_portability_subset
     extensions.push_back(instExtension);
+    
+    vkInstanceInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size());
+    
     vkInstanceInfo.ppEnabledExtensionNames = extensions.data();
     
     if(enableValidationLayers) {

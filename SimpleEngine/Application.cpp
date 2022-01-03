@@ -16,7 +16,6 @@ Application::Application() {
     context = VulkanContext::getInstance();
     context->getInstance()->initVulkan(window);
     
-    
 }
 
 
