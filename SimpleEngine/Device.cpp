@@ -170,10 +170,12 @@ void Device::createLogicalDevice(VkSurfaceKHR surface, bool isValidationLayerEna
     
     VkPhysicalDeviceFeatures deviceFeatures = {};
     deviceFeatures.samplerAnisotropy = VK_TRUE;
-    
+
+#ifdef macos    
     // This needs to be added to support MoltenVK it seems.
     deviceExtensions.push_back("VK_KHR_portability_subset");
-    
+#endif
+
     VkDeviceCreateInfo createInfo = {};
     createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
     createInfo.pQueueCreateInfos = queueCreateInfos.data();
