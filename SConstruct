@@ -8,7 +8,7 @@ environment.ParseConfig("pkg-config vulkan glfw3 glm --cflags --libs")
 environment.Append(CPPDEFINES = ['DEBUG'])
 
 # Set project name for binary
-project_name = "SimpleEngine"
+project_name = "Simple_Engine"
 
 
 # Set my source files to a list.  Appending on one by one rather than using a glob for 
@@ -25,5 +25,5 @@ project_files.append("SimpleEngine/VulkanInstance.cpp")
 
 
 # Set the program to create
-environment.Program(source=project_files)
+environment.Program(project_name, source=project_files)
 
