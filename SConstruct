@@ -25,5 +25,5 @@ project_files.append("SimpleEngine/VulkanInstance.cpp")
 
 
 # Set the program to create
-Program(source=project_files)
+enviroment.Program(source=project_files)
 
