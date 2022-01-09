@@ -13,6 +13,7 @@
 #include <vulkan/vulkan.h>
 #include <vector>
 #include <iostream>
+#include <cstring>
 
 #ifndef GLFW_INCLUDE_VULKAN
 #define GLFW_INCLUDE_VULKAN ;

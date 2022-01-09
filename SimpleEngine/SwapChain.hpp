@@ -13,6 +13,7 @@
 #include <vector>
 #include <set>
 #include <algorithm>
+#include <limits>
 
 class SwapChain {
 public:

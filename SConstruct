@@ -1,5 +1,12 @@
 #!/bin/env python
 
+# use the env functions and pkg config
+enviroment = Environment()
+enviroment['CPPPATH'] = ['/lib']
+enviroment.ParseConfig("pkg-config vulkan glfw3 glm --cflags --libs")
+print(enviroment['CPPPATH'])
+
+
 # Set project name for binary
 project_name = "SimpleEngine"
 
@@ -18,5 +25,5 @@ project_files.append("SimpleEngine/VulkanInstance.cpp")
 
 
 # Set the program to create
-Program(project_name, project_files)
+Program(source=project_files)
 
