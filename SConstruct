@@ -1,11 +1,18 @@
 #!/bin/env python
 
+import os
+
 # use the env functions and pkg config
 environment = Environment()
 environment['CPPPATH'] = ['/lib']
 environment.ParseConfig("pkg-config vulkan glfw3 glm --cflags --libs")
 
 environment.Append(CPPDEFINES = ['DEBUG'])
+
+x11_error = os.system("pkg-config --version > /dev/null")
+if x11_error:
+    print("Error: pkg-config not found. Aborting.")
+    exit(-1)
 
 # Set project name for binary
 project_name = "Simple_Engine"
