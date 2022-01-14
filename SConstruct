@@ -4,15 +4,30 @@ import os
 
 # use the env functions and pkg config
 environment = Environment()
-environment['CPPPATH'] = ['/lib']
-environment.ParseConfig("pkg-config vulkan glfw3 glm --cflags --libs")
 
-environment.Append(CPPDEFINES = ['DEBUG'])
+if (environment['PLATFORM'] == 'darwin'):
+    environment['CPPPATH'] = ['/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/include',
+                                '/opt/homebrew/include']
+    
+    environment['LIBPATH'] = ['/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/lib', '/opt/homebrew/lib']
+    
+    environment.Append(LIBS = ['libvulkan.1.2.198.dylib', 'libglfw.3.3.dylib'])
+    print(environment['LIBS'])
 
-x11_error = os.system("pkg-config --version > /dev/null")
-if x11_error:
-    print("Error: pkg-config not found. Aborting.")
-    exit(-1)
+
+    # environment.Append(LINKFLAGS = ['-install_name @/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/lib/libvulkan.1.2.198.dylib', '-install_name @/opt/homebrew/lib/libglfw.3.3.dylib'])
+    
+    environment['CCFLAGS'] = ['-std=c++11']
+else:
+    environment['CPPPATH'] = ['/lib']
+    environment.ParseConfig("pkg-config vulkan glfw3 glm --cflags --libs")
+
+    environment.Append(CPPDEFINES = ['DEBUG'])
+
+    x11_error = os.system("pkg-config --version > /dev/null")
+    if x11_error:
+        print("Error: pkg-config not found. Aborting.")
+        exit(-1)
 
 # Set project name for binary
 project_name = "Simple_Engine"

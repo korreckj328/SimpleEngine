@@ -1,5 +1,6 @@
 *.dblite
 *.o
+*.a
 .DS_Store
 main
 Simple_Engine
