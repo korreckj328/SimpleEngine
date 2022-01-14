@@ -15,8 +15,9 @@
 #include <vector>
 #include <set>
 
-#include "VulkanInstance.hpp"
-#include "AppValidationLayersAndExtensions.hpp"
+#include "VulkanInstance.h"
+
+#include "AppValidationLayersAndExtensions.h"
 
 struct SwapChainSupportDetails {
     VkSurfaceCapabilitiesKHR surfaceCapabilities;

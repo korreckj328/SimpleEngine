@@ -5,7 +5,7 @@
 //  Created by Jeremiah Korreck on 12/31/21.
 //
 
-#include "VulkanContext.hpp"
+#include "VulkanContext.h"
 
 VulkanContext *VulkanContext::instance = NULL;
 

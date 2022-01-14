@@ -5,7 +5,7 @@
 //  Created by Jeremiah Korreck on 12/31/21.
 //
 
-#include "Application.hpp"
+#include "Application.h"
 Application::Application() {
     glfwInit();
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);

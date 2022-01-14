@@ -5,7 +5,7 @@
 //  Created by Jeremiah Korreck on 12/31/21.
 //
 
-#include "VulkanInstance.hpp"
+#include "VulkanInstance.h"
 
 VulkanInstance::VulkanInstance() {
     

@@ -1,5 +1,5 @@
-#include "Renderpass.hpp"
-#include "VulkanContext.hpp"
+#include "Renderpass.h"
+#include "VulkanContext.h"
 
 Renderpass::Renderpass() {
 

@@ -9,7 +9,7 @@
 #include <stdexcept>
 #include <cstdlib>
 
-#include "Application.hpp"
+#include "Application.h"
 
 int main() {
     Application app;

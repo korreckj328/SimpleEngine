@@ -14,10 +14,10 @@
 #define GLFW_INCLUDE_VULKAN
 #include <vulkan/vulkan.h>
 
-#include "AppValidationLayersAndExtensions.hpp"
-#include "VulkanInstance.hpp"
-#include "Device.hpp"
-#include "SwapChain.hpp"
+#include "AppValidationLayersAndExtensions.h"
+#include "VulkanInstance.h"
+#include "Device.h"
+#include "SwapChain.h"
 
 #ifdef DEBUG
 const bool isValidationLayersEnabled = true;

@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <vulkan/vulkan.h>
 
-#include "AppValidationLayersAndExtensions.hpp"
+#include "AppValidationLayersAndExtensions.h"
 
 class VulkanInstance {
 public:

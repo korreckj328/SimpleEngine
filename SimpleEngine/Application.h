@@ -14,8 +14,8 @@
 #include <stdio.h>
 #include <string>
 
-#include "VulkanContext.hpp"
-#include "SwapChain.hpp"
+#include "VulkanContext.h"
+#include "SwapChain.h"
 
 class Application {
 public:

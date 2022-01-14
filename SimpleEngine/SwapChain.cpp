@@ -5,8 +5,8 @@
 //  Created by Jeremiah Korreck on 1/3/22.
 //
 
-#include "SwapChain.hpp"
-#include "VulkanContext.hpp"
+#include "SwapChain.h"
+#include "VulkanContext.h"
 
 VkSurfaceFormatKHR SwapChain::chooseSwapChainSurfaceFormat(const std::vector<VkSurfaceFormatKHR> &availableFormats) {
     if (availableFormats.size() == 1 && availableFormats[0].format == VK_FORMAT_UNDEFINED) {

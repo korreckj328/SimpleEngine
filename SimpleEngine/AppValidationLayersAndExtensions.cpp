@@ -5,7 +5,7 @@
 //  Created by Jeremiah Korreck on 12/31/21.
 //
 
-#include "AppValidationLayersAndExtensions.hpp"
+#include "AppValidationLayersAndExtensions.h"
 #include <iostream>
 
 AppValidationLayersAndExtensions::AppValidationLayersAndExtensions() {

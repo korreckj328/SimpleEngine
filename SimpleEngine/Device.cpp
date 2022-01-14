@@ -5,7 +5,7 @@
 //  Created by Jeremiah Korreck on 1/1/22.
 //
 
-#include "Device.hpp"
+#include "Device.h"
 
 Device::Device() {
     
