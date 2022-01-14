@@ -5,6 +5,11 @@ import os
 # use the env functions and pkg config
 environment = Environment()
 
+
+# currently builds on apple silicon macs and linux,  everything else is untested.
+# mac install paths are from a downloaded sdk install from lunarg and a brew install
+# of everything else.
+
 if (environment['PLATFORM'] == 'darwin'):
     environment['CPPPATH'] = ['/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/include',
                                 '/opt/homebrew/include']
