@@ -35,7 +35,11 @@ public:
     
     ~VulkanContext();
     void initVulkan(GLFWwindow *window);
-    
+
+	void drawBegin();
+	void drawEnd();
+	void cleanup();
+
     Device *getDevice();
 private:
     AppValidationLayersAndExtensions *valLayersAndExt;
@@ -45,6 +49,10 @@ private:
 	Renderpass *renderPass;
 	RenderTexture *renderTexture;
 	DrawCommandBuffer *drawCommandBuffer;
+
+	uint32_t imageIndex = 0;
+	VkCommandBuffer currentCommandbuffer;
+
     // Surface
     VkSurfaceKHR surface;
 };

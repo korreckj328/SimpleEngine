@@ -26,12 +26,15 @@ void Application::run() {
 void Application::mainLoop() {
     std::cout << "Entering main loop" << std::endl;
     while (!glfwWindowShouldClose(window)) {
-        glfwPollEvents();
+		VulkanContext::getInstance()->drawBegin();
+		VulkanContext::getInstance()->drawEnd();
+		glfwPollEvents();
     }
     std::cout << "Exiting main loop" << std::endl;
 }
 
 Application::~Application() {
+	VulkanContext::getInstance()->cleanup();
     glfwDestroyWindow(window);
     glfwTerminate();
     std::cout << "Application Destroyed" << std::endl;

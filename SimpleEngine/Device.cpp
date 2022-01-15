@@ -204,3 +204,7 @@ void Device::createLogicalDevice(VkSurfaceKHR surface, bool isValidationLayerEna
     
     
 }
+
+void Device::destroy() {
+	vkDestroyDevice(logicalDevice, nullptr);
+}
