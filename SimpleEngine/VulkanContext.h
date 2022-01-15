@@ -20,6 +20,7 @@
 #include "SwapChain.h"
 #include "Renderpass.h"
 #include "RenderTexture.h"
+#include "DrawCommandBuffer.h"
 
 #ifdef DEBUG
 const bool isValidationLayersEnabled = true;
@@ -43,6 +44,7 @@ private:
     SwapChain *swapChain;
 	Renderpass *renderPass;
 	RenderTexture *renderTexture;
+	DrawCommandBuffer *drawCommandBuffer;
     // Surface
     VkSurfaceKHR surface;
 };

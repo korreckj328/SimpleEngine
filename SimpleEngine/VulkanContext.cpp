@@ -62,6 +62,9 @@ void VulkanContext::initVulkan(GLFWwindow *window) {
 											swapChain->swapChainImageFormat,
 											swapChain->swapChainImageExtent,
 											renderPass->renderPass);
+
+	drawCommandBuffer = new DrawCommandBuffer();
+	drawCommandBuffer->createCommandPoolAndBuffer(swapChain->swapChainImages.size());
 }
 
 Device *VulkanContext::getDevice() {

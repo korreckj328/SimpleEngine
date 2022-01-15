@@ -6,4 +6,5 @@ main
 Simple_Engine
 compile_commands.json
 .cache
+.swp
 

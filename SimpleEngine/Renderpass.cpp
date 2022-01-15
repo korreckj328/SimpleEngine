@@ -1,5 +1,6 @@
 #include "Renderpass.h"
 #include "VulkanContext.h"
+#include <array>
 
 Renderpass::Renderpass() {
 
@@ -48,4 +49,24 @@ void Renderpass::destroy() {
 	vkDestroyRenderPass(VulkanContext::getInstance()->getDevice()->logicalDevice, renderPass, nullptr);
 }
 
+void Renderpass::beginRenderPass(std::array<VkClearValue, 1> clearValues,
+								VkCommandBuffer commandBuffer,
+								VkFramebuffer swapChainFrameBuffer,
+								VkExtent2D swapChainImageExtent) {
+	VkRenderPassBeginInfo rpBeginInfo = {};
+
+	rpBeginInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
+	rpBeginInfo.renderPass = renderPass;
+	rpBeginInfo.framebuffer = swapChainFrameBuffer;
+	rpBeginInfo.renderArea.offset = { 0, 0 };
+	rpBeginInfo.renderArea.extent = swapChainImageExtent;
+	rpBeginInfo.pClearValues = clearValues.data();
+	rpBeginInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
+
+	vkCmdBeginRenderPass(commandBuffer, &rpBeginInfo, VK_SUBPASS_CONTENTS_INLINE);
+}
+
+void Renderpass::endRenderPass(VkCommandBuffer commandBuffer) {
+	vkCmdEndRenderPass(commandBuffer);
+}
 
