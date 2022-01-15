@@ -55,6 +55,8 @@ void VulkanContext::initVulkan(GLFWwindow *window) {
     device->createLogicalDevice(surface, isValidationLayersEnabled, valLayersAndExt);
     swapChain = new SwapChain();
     swapChain->create(surface);
+	renderPass = new Renderpass();
+	renderPass->createRenderPass(swapChain->swapChainImageFormat);
 }
 
 Device *VulkanContext::getDevice() {

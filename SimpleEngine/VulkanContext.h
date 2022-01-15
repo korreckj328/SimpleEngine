@@ -18,6 +18,7 @@
 #include "VulkanInstance.h"
 #include "Device.h"
 #include "SwapChain.h"
+#include "Renderpass.h"
 
 #ifdef DEBUG
 const bool isValidationLayersEnabled = true;
@@ -39,6 +40,7 @@ private:
     VulkanInstance *vInstance;
     Device *device;
     SwapChain *swapChain;
+	Renderpass *renderPass;
     // Surface
     VkSurfaceKHR surface;
 };
