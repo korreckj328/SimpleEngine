@@ -57,6 +57,11 @@ void VulkanContext::initVulkan(GLFWwindow *window) {
     swapChain->create(surface);
 	renderPass = new Renderpass();
 	renderPass->createRenderPass(swapChain->swapChainImageFormat);
+	renderTexture = new RenderTexture();
+	renderTexture->createViewsAndFramebuffer(swapChain->swapChainImages,
+											swapChain->swapChainImageFormat,
+											swapChain->swapChainImageExtent,
+											renderPass->renderPass);
 }
 
 Device *VulkanContext::getDevice() {

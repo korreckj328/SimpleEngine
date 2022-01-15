@@ -19,6 +19,7 @@
 #include "Device.h"
 #include "SwapChain.h"
 #include "Renderpass.h"
+#include "RenderTexture.h"
 
 #ifdef DEBUG
 const bool isValidationLayersEnabled = true;
@@ -41,6 +42,7 @@ private:
     Device *device;
     SwapChain *swapChain;
 	Renderpass *renderPass;
+	RenderTexture *renderTexture;
     // Surface
     VkSurfaceKHR surface;
 };

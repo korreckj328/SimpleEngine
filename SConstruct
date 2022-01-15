@@ -6,7 +6,7 @@ import os
 environment = Environment(COMPILATIONDB_USE_ABSPATH=True)
 environment.Tool('compilation_db')
 environment.CompilationDatabase()
-
+environment.Append(CPPDEFINES = ['DEBUG'])
 
 # currently builds on apple silicon macs and linux,  everything else is untested.
 # mac install paths are from a downloaded sdk install from lunarg and a brew install
@@ -28,8 +28,6 @@ if (environment['PLATFORM'] == 'darwin'):
 else:
     environment['CPPPATH'] = ['/lib']
     environment.ParseConfig("pkg-config vulkan glfw3 glm --cflags --libs")
-
-    environment.Append(CPPDEFINES = ['DEBUG'])
 
     x11_error = os.system("pkg-config --version > /dev/null")
     if x11_error:
