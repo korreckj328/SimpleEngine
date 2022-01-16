@@ -7,7 +7,7 @@ environment = Environment(COMPILATIONDB_USE_ABSPATH=True)
 environment.Tool('compilation_db')
 environment.CompilationDatabase()
 environment.Append(CPPDEFINES = ['DEBUG'])
-
+environment['CCFLAGS'] = ['-std=c++11', '-g']
 # currently builds on apple silicon macs and linux,  everything else is untested.
 # mac install paths are from a downloaded sdk install from lunarg and a brew install
 # of everything else.
@@ -24,7 +24,7 @@ if (environment['PLATFORM'] == 'darwin'):
 
     # environment.Append(LINKFLAGS = ['-install_name @/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/lib/libvulkan.1.2.198.dylib', '-install_name @/opt/homebrew/lib/libglfw.3.3.dylib'])
     
-    environment['CCFLAGS'] = ['-std=c++11']
+    # environment['CCFLAGS'] = ['-std=c++11']
 else:
     environment['CPPPATH'] = ['/lib']
     environment.ParseConfig("pkg-config vulkan glfw3 glm --cflags --libs")
