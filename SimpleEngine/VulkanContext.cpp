@@ -139,7 +139,7 @@ void VulkanContext::cleanup() {
 	delete drawCommandBuffer;
 	delete renderTexture;
 	delete renderPass;
-	delete swapChain;
+	// delete swapChain;
 	delete device;
 	delete valLayersAndExt;
 	delete vInstance;
