@@ -25,8 +25,7 @@ if (environment['PLATFORM'] == 'darwin'):
     # environment.Append(LINKFLAGS = ['-install_name @/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/lib/libvulkan.1.2.198.dylib', '-install_name @/opt/homebrew/lib/libglfw.3.3.dylib'])
     
     # environment['CCFLAGS'] = ['-std=c++11']
-else:
-    environment['CPPPATH'] = ['/lib']
+else: 
     environment.ParseConfig("pkg-config vulkan glfw3 glm --cflags --libs")
 
     x11_error = os.system("pkg-config --version > /dev/null")
