@@ -1,6 +1,7 @@
 #!/bin/env python
 
 import os
+import subprocess
 
 # use the env functions and pkg config
 environment = Environment(COMPILATIONDB_USE_ABSPATH=True)
@@ -8,9 +9,27 @@ environment.Tool('compilation_db')
 environment.CompilationDatabase()
 environment.Append(CPPDEFINES = ['DEBUG'])
 environment['CCFLAGS'] = ['-std=c++11', '-g']
+
+
 # currently builds on apple silicon macs and linux,  everything else is untested.
 # mac install paths are from a downloaded sdk install from lunarg and a brew install
 # of everything else.
+
+def compile_shaders():
+    print("About to compile shaders.")
+    compiler = "glslangValidator"
+    print("Compiler: ", compiler)
+    shaders = [
+                "Shaders/basic_fragment.frag",
+                "Shaders/basic_vertex.vert",
+    ]
+
+    print("Shaders: ", shaders)
+    for shader in shaders:
+        print("compiling shader: ", shader)
+        my_out = 'SPIRV/'
+        target = os.path.join(my_out, os.path.basename(shader) + '.spv')
+        subprocess.call([compiler, '-V', shader, '-o', target])
 
 if (environment['PLATFORM'] == 'darwin'):
     environment['CPPPATH'] = ['/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/include',
@@ -42,10 +61,9 @@ project_name = "Simple_Engine"
 
 project_files = Glob('SimpleEngine/*.cpp')
 
-
-
-
-
+if ARGUMENTS.get('compile_shaders', 'no') == 'yes':
+    compile_shaders()
+    print("compile shaders ran")
 
 
 
