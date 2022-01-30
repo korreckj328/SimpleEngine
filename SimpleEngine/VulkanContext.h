@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 
 #define GLFW_INCLUDE_VULKAN
 #include <vulkan/vulkan.h>
@@ -41,6 +42,11 @@ public:
 	void cleanup();
 
     Device *getDevice();
+
+	SwapChain *getSwapChain();
+	Renderpass *getRenderpass();
+	VkCommandBuffer getCurrentCommandBuffer();
+
 private:
     AppValidationLayersAndExtensions *valLayersAndExt;
     VulkanInstance *vInstance;
@@ -55,6 +61,10 @@ private:
 
     // Surface
     VkSurfaceKHR surface;
+	const int MAX_FRAMES_IN_FLIGHT = 2;
+	VkSemaphore imageAvailableSemaphore;
+	VkSemaphore renderFinishedSemaphore;
+	std::vector<VkFence> inFlightFences;
 };
 
 #endif /* VulkanContext_hpp */

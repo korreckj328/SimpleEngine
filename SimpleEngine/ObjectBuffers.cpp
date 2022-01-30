@@ -69,7 +69,7 @@ void ObjectBuffers::createVertexBuffer() {
 
 
 void ObjectBuffers::createIndexBuffer() {
-	VkDeviceSize bufferSize = sizeof(indices[0] * indices.size());
+	VkDeviceSize bufferSize = sizeof(indices[0]) * indices.size();
 	VkBuffer stagingBuffer;
 	VkDeviceMemory stagingBufferMemory;
 

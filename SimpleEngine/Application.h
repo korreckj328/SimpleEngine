@@ -16,6 +16,8 @@
 
 #include "VulkanContext.h"
 #include "SwapChain.h"
+#include "Camera.h"
+#include "ObjectRenderer.h"
 
 class Application {
 public:
@@ -26,6 +28,9 @@ public:
 private:
     void mainLoop();
     
+	Camera camera;
+	ObjectRenderer object;
+
     GLFWwindow *window;
     VulkanContext *context;
     

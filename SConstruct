@@ -17,7 +17,10 @@ environment['CCFLAGS'] = ['-std=c++11', '-g']
 
 def compile_shaders():
     print("About to compile shaders.")
-    compiler = "glslangValidator"
+    if (environment['PLATFORM'] == 'darwin'):
+        compiler = "/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/bin/glslangValidator"
+    else:
+        compiler = "glslangValidator"
     print("Compiler: ", compiler)
     shaders = [
                 "Shaders/basic_fragment.frag",
