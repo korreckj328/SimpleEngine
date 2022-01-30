@@ -21,6 +21,8 @@ public:
 	void destroy();
 
 private:
+	VkShaderModule vertexShaderModule;
+	VkShaderModule fragmentShaderModule;
 	std::vector<char> readfile(const std::string &filename);
 	VkShaderModule createShaderModule(const std::vector<char> &code);
 	void createGraphicsPipelineLayout(VkDescriptorSetLayout descriptorSetLayout);

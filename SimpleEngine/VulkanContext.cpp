@@ -197,7 +197,7 @@ void VulkanContext::cleanup() {
 	renderTexture->destroy();
 	renderPass->destroy();
 	swapChain->destroy();
-	VulkanContext::getInstance()->getDevice()->destroy();
+	device->destroy();
 	valLayersAndExt->destroy(vInstance->vkInstance, isValidationLayersEnabled);
 	vkDestroySurfaceKHR(vInstance->vkInstance, surface, nullptr);
 	vkDestroyInstance(vInstance->vkInstance, nullptr);

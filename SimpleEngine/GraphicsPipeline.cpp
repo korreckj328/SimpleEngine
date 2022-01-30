@@ -65,7 +65,7 @@ VkShaderModule GraphicsPipeline::createShaderModule(const std::vector<char> &cod
 void GraphicsPipeline::createGraphicsPipeline(VkExtent2D swapChainImageExtent,
 												VkRenderPass renderPass) {
 	auto vertexShaderCode = readfile("SPIRV/basic_vertex.vert.spv");
-	VkShaderModule vertexShaderModule = createShaderModule(vertexShaderCode);
+	vertexShaderModule = createShaderModule(vertexShaderCode);
 
 	VkPipelineShaderStageCreateInfo vertShaderStageCreateInfo = {};
 	vertShaderStageCreateInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
@@ -75,7 +75,7 @@ void GraphicsPipeline::createGraphicsPipeline(VkExtent2D swapChainImageExtent,
 
 
 	auto fragShaderCode = readfile("SPIRV/basic_fragment.frag.spv");
-	VkShaderModule fragmentShaderModule = createShaderModule(fragShaderCode);
+	fragmentShaderModule = createShaderModule(fragShaderCode);
 
 	VkPipelineShaderStageCreateInfo fragShaderStageCreateInfo = {};
 	fragShaderStageCreateInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
@@ -195,6 +195,13 @@ void GraphicsPipeline::createGraphicsPipeline(VkExtent2D swapChainImageExtent,
 
 
 void GraphicsPipeline::destroy() {
+	vkDestroyShaderModule(VulkanContext::getInstance()->getDevice()->logicalDevice,
+							vertexShaderModule,
+							nullptr);
+
+	vkDestroyShaderModule(VulkanContext::getInstance()->getDevice()->logicalDevice,
+							fragmentShaderModule,
+							nullptr);
 	vkDestroyPipeline(VulkanContext::getInstance()->getDevice()->logicalDevice, 
 						graphicsPipeline, nullptr);
 
