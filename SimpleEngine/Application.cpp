@@ -18,9 +18,31 @@ Application::Application() {
 	camera.init(45.0f, 1280.0f, 720.0f, 0.1f, 10000.0f);
 	camera.setCameraPosition(glm::vec3(0.0f, 0.0f, 4.0f));
 
-	object.createObjectRenderer(MeshType::kTriangle, 
+
+	ObjectRenderer triangle;
+	triangle.createObjectRenderer(MeshType::kTriangle, 
 								glm::vec3(-1.0f, 1.0f, 0.0f), 
 								glm::vec3(0.5f));
+
+	objects.push_back(triangle);
+
+	ObjectRenderer quad;
+	quad.createObjectRenderer(MeshType::kQuad,
+							glm::vec3(1.0f, 1.0f, 0.0f),
+							glm::vec3(0.5f));
+	objects.push_back(quad);
+
+	ObjectRenderer cube;
+	cube.createObjectRenderer(MeshType::kCube,
+							glm::vec3(-1.0f, -1.0f, 0.0f),
+							glm::vec3(0.5f));
+	objects.push_back(cube);
+
+	ObjectRenderer sphere;
+	sphere.createObjectRenderer(MeshType::kSphere,
+								glm::vec3(1.0f, -1.0f, 0.0f),
+								glm::vec3(0.5f));
+	objects.push_back(sphere);
 }
 
 
@@ -33,9 +55,10 @@ void Application::mainLoop() {
     while (!glfwWindowShouldClose(window)) {
 		VulkanContext::getInstance()->drawBegin();
 
-		object.updateUniformbuffer(camera);
-		object.draw();
-
+		for (auto obj : objects) {
+			obj.updateUniformbuffer(camera);
+			obj.draw();
+		}
 
 		VulkanContext::getInstance()->drawEnd();
 		glfwPollEvents();
@@ -44,7 +67,9 @@ void Application::mainLoop() {
 }
 
 Application::~Application() {
-	object.destroy();
+	for (auto obj : objects) {
+		obj.destroy();
+	}
 	VulkanContext::getInstance()->cleanup();
     glfwDestroyWindow(window);
     glfwTerminate();

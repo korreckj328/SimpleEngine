@@ -13,6 +13,7 @@
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <string>
+#include <vector>
 
 #include "VulkanContext.h"
 #include "SwapChain.h"
@@ -29,7 +30,8 @@ private:
     void mainLoop();
     
 	Camera camera;
-	ObjectRenderer object;
+
+	std::vector<ObjectRenderer> objects;	
 
     GLFWwindow *window;
     VulkanContext *context;
