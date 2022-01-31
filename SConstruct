@@ -8,7 +8,8 @@ environment = Environment(COMPILATIONDB_USE_ABSPATH=True)
 environment.Tool('compilation_db')
 environment.CompilationDatabase()
 environment.Append(CPPDEFINES = ['DEBUG'])
-environment['CCFLAGS'] = ['-std=c++11', '-g']
+if(environment['PLATFORM'] != 'win32'):
+    environment['CCFLAGS'] = ['-std=c++11', '-g']
 
 
 # currently builds on apple silicon macs and linux,  everything else is untested.
@@ -35,19 +36,43 @@ def compile_shaders():
         subprocess.call([compiler, '-V', shader, '-o', target])
 
 if (environment['PLATFORM'] == 'darwin'):
-    environment['CPPPATH'] = ['/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/include',
-                                '/opt/homebrew/include']
+    environment['CPPPATH'] = [
+            '/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/include',
+            '/opt/homebrew/include'
+    ]
     
-    environment['LIBPATH'] = ['/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/lib', '/opt/homebrew/lib']
+    environment['LIBPATH'] = [
+            '/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/lib', 
+            '/opt/homebrew/lib'
+    ]
     
-    environment.Append(LIBS = ['libvulkan.1.2.198.dylib', 'libglfw.3.3.dylib'])
+    environment.Append(LIBS = [
+            'libvulkan.1.2.198.dylib', 
+            'libglfw.3.3.dylib'
+    ])
+
     print(environment['LIBS'])
 
-
-    # environment.Append(LINKFLAGS = ['-install_name @/Users/jeremiahkorreck/VulkanSDK/1.2.198.1/macOS/lib/libvulkan.1.2.198.dylib', '-install_name @/opt/homebrew/lib/libglfw.3.3.dylib'])
-    
-    # environment['CCFLAGS'] = ['-std=c++11']
+elif (environment['PLATFORM'] == 'win32'):
+    print("In platform win32")
+    environment['CPPPATH'] = [
+            "C:\\VulkanSDK\\1.2.198.1\\Include",
+            "C:\\Libraries\\g-truc-glm-bf71a83",
+            "C:\\Libraries\\glfw-3.3.6.bin.WIN64\\include"
+    ]
+    print(environment['CPPPATH'])
+    environment['LIBPATH'] = [
+            "C:\\Libraries\\glfw-3.3.6.bin.WIN64\\lib-vc2022",
+            "C:\\VulkanSDK\\1.2.198\\Lib32"
+    ]
+    environment.Append(LIBS = [
+            "glfw3",
+            "vulkan"
+    ])
+    print(environment['LIBPATH'])
+    print(environment['LIBS'])
 else: 
+    print(environment['PLATFORM'])
     environment.ParseConfig("pkg-config vulkan glfw3 glm --cflags --libs")
 
     x11_error = os.system("pkg-config --version > /dev/null")
