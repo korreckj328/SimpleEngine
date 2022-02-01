@@ -9,7 +9,7 @@ environment.Tool('compilation_db')
 environment.CompilationDatabase()
 environment.Append(CPPDEFINES = ['DEBUG'])
 if(environment['PLATFORM'] != 'win32'):
-    environment['CCFLAGS'] = ['-std=c++11', '-g']
+    environment['CCFLAGS'] = ['-std=c++11', '-g', '-Wall']
 
 
 # currently builds on apple silicon macs and linux,  everything else is untested.

@@ -61,7 +61,7 @@ private:
 
     // Surface
     VkSurfaceKHR surface;
-	const int MAX_FRAMES_IN_FLIGHT = 2;
+	const size_t MAX_FRAMES_IN_FLIGHT = 2;
 	VkSemaphore imageAvailableSemaphore;
 	VkSemaphore renderFinishedSemaphore;
 	std::vector<VkFence> inFlightFences;
