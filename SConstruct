@@ -80,6 +80,8 @@ else:
         print("Error: pkg-config not found. Aborting.")
         exit(-1)
 
+environment.Append(CPPPATH = 'stb')
+
 # Set project name for binary
 project_name = "Simple_Engine"
 
