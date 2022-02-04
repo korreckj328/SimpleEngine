@@ -64,6 +64,9 @@ void Application::mainLoop() {
 		glfwPollEvents();
     }
     std::cout << "Exiting main loop" << std::endl;
+	std::cout << "Waiting for device ... ";
+	vkDeviceWaitIdle(VulkanContext::getInstance()->getDevice()->logicalDevice);
+	std::cout << "Done" << std::endl;
 }
 
 Application::~Application() {
